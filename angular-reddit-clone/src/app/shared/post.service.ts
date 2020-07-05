@@ -26,4 +26,8 @@ export class PostService {
   getAllPostsByUser(name: string): Observable<PostModel[]> {
     return this.http.get<PostModel[]>('http://localhost:8080/api/posts/by-user/'+name);
   }
+  
+  getPostsBySubreddit(redditId: number): Observable<PostModel[]> {
+    return this.http.get<PostModel[]>('http://localhost:8080/api/posts/by-subreddit/'+redditId);
+  }
 }
