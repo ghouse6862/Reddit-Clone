@@ -8,6 +8,7 @@ import { CreateSubredditComponent } from './subreddit/create-subreddit/create-su
 import { ListSubredditsComponent } from './subreddit/list-subreddits/list-subreddits.component';
 import { ViewPostComponent } from './post/view-post/view-post.component';
 import { UserProfileComponent } from './auth/user-profile/user-profile.component';
+import { PostBySubredditComponent } from './post/post-by-subreddit/post-by-subreddit.component';
 import { AuthGuard } from "./auth/auth.guard";
 
 
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'create-subreddit', component: CreateSubredditComponent, canActivate: [AuthGuard]},
   {path: 'list-subreddits', component: ListSubredditsComponent},
   {path: 'view-post/:id', component: ViewPostComponent},
-  {path: 'user-profile/:name', component: UserProfileComponent, canActivate: [AuthGuard]}
+  {path: 'user-profile/:name', component: UserProfileComponent, canActivate: [AuthGuard]},
+  {path: 'view-subreddit/:id', component: PostBySubredditComponent}
 ];
 
 @NgModule({

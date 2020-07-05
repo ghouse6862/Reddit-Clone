@@ -20,8 +20,16 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.authService.loggedIn.subscribe((data: boolean) => this.isLoggedIn = data);
     this.authService.username.subscribe((data: string) => this.username = data);
+    if(this.checkLoggedIn()) { 
+      this.isLoggedIn = true;
+      this.username = this.authService.getUsername();
+    }
   }
 
+  checkLoggedIn() {
+    return this.authService.isLoggedIn();
+  }
+  
   goToUserProfile() {
     this.router.navigateByUrl('/user-profile/'+this.username);
   }
